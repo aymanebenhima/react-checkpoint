@@ -241,3 +241,93 @@ In this checkpoint, you will create a React app to display a list of FIFA player
 - Use `map` to iterate through the array of players and render a `Player` component for each player.
 - Use the spread operator to pass props to the `Player` component.
 - Add custom styling using inline styles for the `Player` component.
+
+## Objective: Class-Based Component with State
+
+In this checkpoint, you will create your first class-based React component and implement state management within this component. Your goal is to build an application that displays a person's profile with details like `fullName`, `bio`, `imgSrc`, and `profession`. Additionally, you'll implement a button to toggle the visibility of this profile and show a field displaying the time elapsed since the component was mounted using React lifecycle methods.
+
+## Prerequisites
+
+Before you begin, ensure that you have:
+- Node.js and npm installed.
+- Basic knowledge of React and JavaScript.
+
+## Project Setup Instructions
+
+1. **Create a New React App**
+   - Use the `create-react-app` command to set up a new project.
+     ```bash
+     npx create-react-app my-class-based-component
+     cd my-class-based-component
+     ```
+
+2. **Transform `App.js` into a Class-Based Component**
+   - Change the default `App` function component in `App.js` to a class-based component by extending `React.Component`.
+
+3. **Implement State in the Class Component**
+   - Create a state object within your class component with the following properties:
+     ```jsx
+     state = {
+       person: {
+         fullName: 'Your Full Name',
+         bio: 'Short bio about the person',
+         imgSrc: 'path/to/your/image.jpg',
+         profession: 'Your Profession'
+       },
+       shows: false,
+       mountedTime: 0 // To track elapsed time since component mount
+     };
+     ```
+
+4. **Add a Button to Toggle Visibility**
+   - Add a button in the render method to toggle the `shows` state when clicked.
+   - When `shows` is `true`, display the person's profile. Otherwise, hide it.
+
+5. **Display the Person's Profile Conditionally**
+   - Use conditional rendering to display the person's information based on the value of `shows`.
+   - Display the following fields:
+     - Full Name
+     - Bio
+     - Image (use an `img` element)
+     - Profession
+
+6. **Show the Time Interval Since the Component Was Mounted**
+   - Implement React lifecycle methods such as `componentDidMount` and `componentWillUnmount` to start and clear a timer using `setInterval`.
+   - Display the elapsed time in seconds since the component was mounted.
+
+## Hints
+
+- **Class-Based Components**: Remember that class components extend `React.Component` and have access to lifecycle methods and `state`.
+- **State Initialization**: You can initialize the state object in the constructor or directly within the class body.
+- **Toggling Visibility**: Use the `setState` method to update the `shows` state when the button is clicked.
+  ```jsx
+  this.setState({ shows: !this.state.shows });
+  ```
+- **Lifecycle Methods**:
+  - `componentDidMount` is a good place to start the timer using `setInterval`.
+  - `componentWillUnmount` can be used to clear the timer when the component is unmounted.
+- **Conditional Rendering**: Use a ternary operator or `&&` logical operator to conditionally render JSX elements based on the `shows` state.
+
+## Example Project Structure
+
+```bash
+my-class-based-component/
+├── README.md
+├── node_modules
+├── package.json
+├── public
+└── src
+    ├── App.js
+    ├── index.js
+    └── index.css
+```
+
+---
+
+## Additional Tips
+
+- Use appropriate CSS classes to style your component for a better UI/UX.
+- Ensure that you handle state updates correctly without directly mutating the state.
+- For better accessibility, make sure the toggle button has a descriptive label.
+
+Happy coding! 🚀
