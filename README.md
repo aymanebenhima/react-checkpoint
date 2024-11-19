@@ -1,5 +1,6 @@
 # React Checkpoint
 
+# React JS Fundamentals
 ## Objective 1: Product Card Display
 
 ### Overview
@@ -242,6 +243,7 @@ In this checkpoint, you will create a React app to display a list of FIFA player
 - Use the spread operator to pass props to the `Player` component.
 - Add custom styling using inline styles for the `Player` component.
 
+# React State
 ## Objective: Class-Based Component with State
 
 In this checkpoint, you will create your first class-based React component and implement state management within this component. Your goal is to build an application that displays a person's profile with details like `fullName`, `bio`, `imgSrc`, and `profession`. Additionally, you'll implement a button to toggle the visibility of this profile and show a field displaying the time elapsed since the component was mounted using React lifecycle methods.
@@ -329,5 +331,128 @@ my-class-based-component/
 - Use appropriate CSS classes to style your component for a better UI/UX.
 - Ensure that you handle state updates correctly without directly mutating the state.
 - For better accessibility, make sure the toggle button has a descriptive label.
+
+# React Hooks
+
+## Objective: Movie App with React Hooks
+
+In this checkpoint, your task is to create a simple movie app that allows users to showcase their favorite movies or TV shows. The app will utilize React hooks for state management and functional components. You'll also implement features to add new movies and filter movies based on their title and rating.
+
+## Instructions
+
+### Components to Create
+
+1. **MovieCard**  
+   This component will display the details of a single movie. Each movie card should show:
+   - Title
+   - Description
+   - Poster (using `posterURL`)
+   - Rating
+
+2. **MovieList**  
+   This component will:
+   - Render a list of movies.
+   - Take the list of movies as a prop and map through it to display each movie using the `MovieCard` component.
+
+3. **Filter**  
+   This component will allow the user to:
+   - Filter movies by their title.
+   - Filter movies by their rating.
+   - It will take input values (title and rating) and pass them to a function that filters the movie list in the `MovieList` component.
+
+### Features to Implement
+
+- **Add a New Movie**  
+  Create a form or input fields that allow users to add a new movie with the following attributes:
+  - Title
+  - Description
+  - Poster URL
+  - Rating
+
+- **Filtering Movies**  
+  Allow the user to filter movies based on:
+  - **Title:** Filter should be case-insensitive and partial matches should be considered.
+  - **Rating:** Filter should show movies with ratings greater than or equal to the selected rating.
+
+## Project Setup Instructions
+
+### 1. Create a New React App
+
+- If you haven't already, set up a new React project:
+  ```bash
+  npx create-react-app movie-app
+  cd movie-app
+  ```
+  
+### 2. Create Components
+
+- Create the necessary components (`MovieCard`, `MovieList`, `Filter`) inside the `src` folder.
+
+### 3. Use React Hooks
+
+- Use **React hooks** (`useState`, `useEffect`, etc.) to manage component state and handle user interactions.
+
+## Hints
+
+### State Management
+
+- **State for Movies:** Use `useState` to create a state variable that holds an array of movie objects.
+  ```jsx
+  const [movies, setMovies] = useState([
+    // Example movie object
+    {
+      title: "Example Movie",
+      description: "An example movie description.",
+      posterURL: "https://example.com/poster.jpg",
+      rating: 5
+    }
+  ]);
+  ```
+  
+- **Adding a New Movie:** You can create a function that updates the `movies` state with a new movie object. Consider using an input form and `onChange`/`onSubmit` handlers.
+
+### Filtering Movies
+
+- **Filter by Title:** Create a state variable for the filter input and use it to conditionally render the movie list based on the input value.
+- **Filter by Rating:** Similarly, use a state variable for rating input and display movies that match the criteria.
+
+### Conditional Rendering
+
+- Make sure to use conditional rendering to display messages like "No movies found" when the filtered list is empty.
+
+### CSS Styling
+
+- Add styles to make your app visually appealing using CSS or any library of your choice (e.g., Tailwind CSS, Bootstrap).
+
+### Example Project Structure
+
+```bash
+movie-app/
+├── README.md
+├── node_modules
+├── package.json
+├── public
+└── src
+    ├── App.js
+    ├── components
+    │   ├── MovieCard.js
+    │   ├── MovieList.js
+    │   └── Filter.js
+    ├── index.js
+    └── App.css
+```
+
+## Criteria for Evaluation
+
+- **Respect of the Guidelines:** Ensure that you follow the project instructions.
+- **Use of Hooks:** Proper usage of React hooks like `useState` and `useEffect`.
+- **Filtering Functionality:** The filtering by title and rating should work as expected.
+- **Adding Movies:** Users should be able to add new movies using a form or input fields.
+
+## Additional Tips
+
+- **Reusable Components:** Consider making `MovieCard` a reusable component that can be used in different contexts if needed.
+- **Performance Optimization:** Avoid unnecessary re-renders by using memoization techniques if applicable.
+- **Accessibility:** Make sure to add appropriate `aria` labels and handle keyboard interactions for better accessibility.
 
 Happy coding! 🚀
