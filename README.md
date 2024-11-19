@@ -10,6 +10,8 @@
   - [Objective: Class-Based Component with State](#objective-class-based-component-with-state)
 - [React Hooks](#react-hooks)
   - [Objective: Movie App with React Hooks](#objective-movie-app-with-react-hooks)
+- [React Debugging](#react-debugging)
+  - [Objective: Debug a sample React application](#objective-debug-a-sample-react-application)
   
 </details>
 
@@ -474,6 +476,69 @@ movie-app/
 - **Reusable Components:** Consider making `MovieCard` a reusable component that can be used in different contexts if needed.
 - **Performance Optimization:** Avoid unnecessary re-renders by using memoization techniques if applicable.
 - **Accessibility:** Make sure to add appropriate `aria` labels and handle keyboard interactions for better accessibility.
+</details>
+
+<details>
+<summary>React Debugging</summary>
+
+## Objective: Debug a sample React application
+Debug a sample React application using the React Developer Tools to identify and resolve issues such as incorrect state values, missing props, or unexpected component behavior.
+
+### Checkpoint Description
+In this checkpoint, you will focus on enhancing your debugging skills with React by leveraging the React Developer Tools. This challenge will provide you with valuable experience in diagnosing and fixing common React issues related to state, props, and component behavior.
+
+### Instructions
+
+1. **Set Up the Sample Application**
+   - Use the provided sample React application or create a simple one with multiple components.
+   - Ensure it contains examples of state management (using `useState` or `useReducer`) and prop passing between components.
+
+2. **Install React Developer Tools**
+   - If you have not already done so, install the [React Developer Tools browser extension](https://react.devtools) for Chrome, Firefox, or Edge. Alternatively, you can use the standalone version.
+
+3. **Inspect the Components Tree**
+   - Open your application in the browser.
+   - Access the React Developer Tools by navigating to the Developer Tools panel (often available under "Components" in the DevTools tab).
+
+4. **Identify Issues**
+   - Look for components displaying unexpected behavior (e.g., rendering errors, incorrect state values, missing props, or warnings in the console).
+   - Expand the component tree and inspect the state and props of individual components.
+   - Note down any discrepancies, such as:
+     - **Incorrect state values**: Is the state different from what you expect?
+     - **Missing or incorrect props**: Are required props missing or being passed incorrectly?
+     - **Unexpected rendering behavior**: Are components re-rendering too often or not rendering at all?
+
+5. **Diagnose the Problems**
+   - Use the features in React Developer Tools:
+     - **State and Props Inspection**: Hover over or click on components to view their props and state values.
+     - **Hooks Inspector**: If your component uses hooks, view their current state.
+     - **Profiler**: Analyze component render times and detect performance bottlenecks.
+     - **Highlight Updates**: Enable highlighting to see which components are re-rendering.
+
+6. **Fix the Issues**
+   - Apply fixes in the codebase based on your diagnosis:
+     - **State Issues**: Ensure state changes are being handled correctly (e.g., avoid mutating state directly).
+     - **Props Issues**: Double-check parent-to-child prop passing.
+     - **Rendering Behavior**: Address any unnecessary renders by using memoization, React.memo, or fine-tuning dependencies in `useEffect`.
+
+7. **Document the Debugging Process**
+   - Keep a log of the steps you followed, issues identified, and the solutions implemented.
+   - Summarize any useful insights gained from using the React Developer Tools.
+
+8. **Verify Functionality**
+   - Test the application thoroughly to ensure the issues have been resolved and no new issues were introduced.
+   - Use the browser console to double-check for any lingering warnings or errors.
+
+---
+
+### Hints
+
+- **State Inspection**: When inspecting state, watch for direct state mutations (e.g., modifying arrays or objects without creating a new copy).
+- **Component Re-renders**: If a component re-renders unexpectedly, check if it receives new props or if its state changes due to a parent component's update.
+- **Props Validation**: Use `PropTypes` or TypeScript to validate prop types in components, which can help identify missing or incorrect props.
+- **Hooks Dependencies**: Ensure that `useEffect` dependencies are correctly specified to prevent infinite loops or missed updates.
+- **Avoid "Magic" Fixes**: If you "fix" a problem without fully understanding it, take the time to investigate. Issues may reappear or lead to other unexpected behavior later.
+- **Profile for Performance**: Use the React Profiler to identify slow components, which may be caused by frequent or unnecessary renders.
 </details>
 
 Happy coding! 🚀
