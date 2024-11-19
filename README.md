@@ -1,7 +1,23 @@
 # React Checkpoint
 
-# React JS Fundamentals
-## Objective 1: Product Card Display
+<details open>
+  <summary>Table of Contents</summary>
+
+- [React JS Fundamentals](#react-js-fundamentals)
+  - [Objective 1: Product Card Display](#objective-1-product-card-display)
+- [React State](#react-state)
+  - [Objective: Class-Based Component with State](#objective-class-based-component-with-state)
+- [React Hooks](#react-hooks)
+  - [Objective: Movie App with React Hooks](#objective-movie-app-with-react-hooks)
+  
+</details>
+
+---
+
+## React JS Fundamentals
+
+<details>
+  <summary>Objective 1: Product Card Display</summary>
 
 ### Overview
 In this checkpoint, we will use React components and JSX to create a product card application using structured data and components. This checkpoint will enhance your skills with React components, JSX, data props, and React Bootstrap for styling.
@@ -24,14 +40,14 @@ In this checkpoint, we will use React components and JSX to create a product car
 
 3. **Create a Product Data File**
    - Create a file named `product.js` in the `src` folder.
-   - Define a JSON object with the following keys: `name`, `price`, `description`, and `image`.
+   - Define a JSON object with keys: `name`, `price`, `description`, and `image`.
      ```javascript
      // src/product.js
      const product = {
        name: "Wireless Headphones",
        price: "$99.99",
        description: "High-quality wireless headphones with noise-cancellation.",
-       image: "https://via.placeholder.com/150" // Replace with any valid URL
+       image: "https://via.placeholder.com/150"
      };
 
      export default product;
@@ -44,7 +60,7 @@ In this checkpoint, we will use React components and JSX to create a product car
      - `Description.js`
      - `Image.js`
 
-   - Each file should contain a React component that displays the respective property from the product object.
+   - Each file should contain a React component displaying the respective property from the product object.
      Example for `Name.js`:
      ```javascript
      // src/Name.js
@@ -57,6 +73,7 @@ In this checkpoint, we will use React components and JSX to create a product car
 
      export default Name;
      ```
+
    - Follow a similar structure for `Price.js`, `Description.js`, and `Image.js`.
 
 5. **Import and Use Components in App.js**
@@ -71,7 +88,7 @@ In this checkpoint, we will use React components and JSX to create a product car
      import 'bootstrap/dist/css/bootstrap.min.css';
 
      function App() {
-       const firstName = "John"; // Replace with your name or keep it blank
+       const firstName = "John";
 
        return (
          <div className="container mt-5">
@@ -99,162 +116,25 @@ In this checkpoint, we will use React components and JSX to create a product car
 - Use React Bootstrap classes like `card`, `card-body`, etc., for styling.
 - Feel free to add more styling using inline styles or CSS classes.
 
+</details>
+
 ---
 
-## Objective 2: FIFA Player Cards
+## React State
+
+<details>
+  <summary>Objective: Class-Based Component with State</summary>
 
 ### Overview
-In this checkpoint, you will create a React app to display a list of FIFA player cards. This exercise will enhance your ability to work with arrays, components, props, and styling in React.
-
-### Instructions
-
-1. **Create a React Project**
-   - Use `create-react-app` to create a new project:
-     ```bash
-     npx create-react-app fifa-players
-     ```
-   - Navigate to your project directory:
-     ```bash
-     cd fifa-players
-     ```
-
-2. **Create Player Data File**
-   - Create a file named `players.js` in the `src` folder.
-   - Define an array of objects, each representing a player with attributes: `name`, `team`, `nationality`, `jerseyNumber`, `age`, and `image`.
-     ```javascript
-     // src/players.js
-     const players = [
-       {
-         name: "Player 1",
-         team: "Team A",
-         nationality: "Country A",
-         jerseyNumber: 7,
-         age: 27,
-         image: "https://via.placeholder.com/150"
-       },
-       {
-         name: "Player 2",
-         team: "Team B",
-         nationality: "Country B",
-         jerseyNumber: 10,
-         age: 30,
-         image: "https://via.placeholder.com/150"
-       },
-       // Add more players as desired
-     ];
-
-     export default players;
-     ```
-
-3. **Create Player Component**
-   - Create a file named `Player.js`:
-     ```javascript
-     // src/Player.js
-     import React from 'react';
-     import PropTypes from 'prop-types';
-     import 'bootstrap/dist/css/bootstrap.min.css';
-
-     const Player = ({ name, team, nationality, jerseyNumber, age, image }) => {
-       const cardStyle = {
-         margin: '10px',
-         padding: '15px',
-         textAlign: 'center',
-       };
-
-       return (
-         <div className="card" style={{ width: '18rem', ...cardStyle }}>
-           <img src={image} className="card-img-top" alt={name} />
-           <div className="card-body">
-             <h5 className="card-title">{name}</h5>
-             <p className="card-text">
-               Team: {team} <br />
-               Nationality: {nationality} <br />
-               Jersey Number: {jerseyNumber} <br />
-               Age: {age}
-             </p>
-           </div>
-         </div>
-       );
-     };
-
-     Player.propTypes = {
-       name: PropTypes.string.isRequired,
-       team: PropTypes.string.isRequired,
-       nationality: PropTypes.string.isRequired,
-       jerseyNumber: PropTypes.number.isRequired,
-       age: PropTypes.number.isRequired,
-       image: PropTypes.string.isRequired,
-     };
-
-     Player.defaultProps = {
-       name: 'Unknown Player',
-       team: 'Unknown Team',
-       nationality: 'Unknown',
-       jerseyNumber: 0,
-       age: 0,
-       image: 'https://via.placeholder.com/150',
-     };
-
-     export default Player;
-     ```
-
-4. **Create PlayersList Component**
-   - Create a file named `PlayersList.js`:
-     ```javascript
-     // src/PlayersList.js
-     import React from 'react';
-     import Player from './Player';
-     import players from './players';
-
-     const PlayersList = () => {
-       return (
-         <div className="d-flex flex-wrap justify-content-center">
-           {players.map((player) => (
-             <Player key={player.name} {...player} />
-           ))}
-         </div>
-       );
-     };
-
-     export default PlayersList;
-     ```
-
-5. **Use PlayersList Component in App.js**
-   - Import and render the `PlayersList` component in `App.js`:
-     ```javascript
-     // src/App.js
-     import React from 'react';
-     import PlayersList from './PlayersList';
-
-     function App() {
-       return (
-         <div className="App">
-           <h1 className="text-center">FIFA Players</h1>
-           <PlayersList />
-         </div>
-       );
-     }
-
-     export default App;
-     ```
-
-### Hints
-- Use `map` to iterate through the array of players and render a `Player` component for each player.
-- Use the spread operator to pass props to the `Player` component.
-- Add custom styling using inline styles for the `Player` component.
-
-# React State
-## Objective: Class-Based Component with State
-
 In this checkpoint, you will create your first class-based React component and implement state management within this component. Your goal is to build an application that displays a person's profile with details like `fullName`, `bio`, `imgSrc`, and `profession`. Additionally, you'll implement a button to toggle the visibility of this profile and show a field displaying the time elapsed since the component was mounted using React lifecycle methods.
 
-## Prerequisites
+### Prerequisites
 
 Before you begin, ensure that you have:
 - Node.js and npm installed.
 - Basic knowledge of React and JavaScript.
 
-## Project Setup Instructions
+### Project Setup Instructions
 
 1. **Create a New React App**
    - Use the `create-react-app` command to set up a new project.
@@ -267,7 +147,7 @@ Before you begin, ensure that you have:
    - Change the default `App` function component in `App.js` to a class-based component by extending `React.Component`.
 
 3. **Implement State in the Class Component**
-   - Create a state object within your class component with the following properties:
+   - Create a state object within your class component:
      ```jsx
      state = {
        person: {
@@ -277,182 +157,48 @@ Before you begin, ensure that you have:
          profession: 'Your Profession'
        },
        shows: false,
-       mountedTime: 0 // To track elapsed time since component mount
+       mountedTime: 0
      };
      ```
 
 4. **Add a Button to Toggle Visibility**
-   - Add a button in the render method to toggle the `shows` state when clicked.
-   - When `shows` is `true`, display the person's profile. Otherwise, hide it.
+   - Add a button to toggle the `shows` state when clicked.
+   - Display the profile only if `shows` is `true`.
 
-5. **Display the Person's Profile Conditionally**
-   - Use conditional rendering to display the person's information based on the value of `shows`.
-   - Display the following fields:
-     - Full Name
-     - Bio
-     - Image (use an `img` element)
-     - Profession
-
-6. **Show the Time Interval Since the Component Was Mounted**
-   - Implement React lifecycle methods such as `componentDidMount` and `componentWillUnmount` to start and clear a timer using `setInterval`.
-   - Display the elapsed time in seconds since the component was mounted.
+5. **Show the Time Interval Since the Component Was Mounted**
+   - Use React lifecycle methods like `componentDidMount` and `componentWillUnmount` to manage a timer.
 
 ## Hints
 
-- **Class-Based Components**: Remember that class components extend `React.Component` and have access to lifecycle methods and `state`.
-- **State Initialization**: You can initialize the state object in the constructor or directly within the class body.
-- **Toggling Visibility**: Use the `setState` method to update the `shows` state when the button is clicked.
-  ```jsx
-  this.setState({ shows: !this.state.shows });
-  ```
-- **Lifecycle Methods**:
-  - `componentDidMount` is a good place to start the timer using `setInterval`.
-  - `componentWillUnmount` can be used to clear the timer when the component is unmounted.
-- **Conditional Rendering**: Use a ternary operator or `&&` logical operator to conditionally render JSX elements based on the `shows` state.
+- Use `setState` to update the `shows` state.
+- Use `componentDidMount` to start a timer using `setInterval` and `componentWillUnmount` to clear the timer.
 
-## Example Project Structure
-
-```bash
-my-class-based-component/
-├── README.md
-├── node_modules
-├── package.json
-├── public
-└── src
-    ├── App.js
-    ├── index.js
-    └── index.css
-```
+</details>
 
 ---
 
-## Additional Tips
+## React Hooks
 
-- Use appropriate CSS classes to style your component for a better UI/UX.
-- Ensure that you handle state updates correctly without directly mutating the state.
-- For better accessibility, make sure the toggle button has a descriptive label.
+<details>
+  <summary>Objective: Movie App with React Hooks</summary>
 
-# React Hooks
-
-## Objective: Movie App with React Hooks
-
-In this checkpoint, your task is to create a simple movie app that allows users to showcase their favorite movies or TV shows. The app will utilize React hooks for state management and functional components. You'll also implement features to add new movies and filter movies based on their title and rating.
-
-## Instructions
+### Overview
+Create a simple movie app that allows users to showcase their favorite movies or TV shows. The app will utilize React hooks for state management and functional components. You will also implement features to add new movies and filter movies based on their title and rating.
 
 ### Components to Create
 
 1. **MovieCard**  
-   This component will display the details of a single movie. Each movie card should show:
-   - Title
-   - Description
-   - Poster (using `posterURL`)
-   - Rating
+   Display details of a single movie including Title, Description, Poster, and Rating.
 
 2. **MovieList**  
-   This component will:
-   - Render a list of movies.
-   - Take the list of movies as a prop and map through it to display each movie using the `MovieCard` component.
+   Render a list of movies using the `MovieCard` component.
 
 3. **Filter**  
-   This component will allow the user to:
-   - Filter movies by their title.
-   - Filter movies by their rating.
-   - It will take input values (title and rating) and pass them to a function that filters the movie list in the `MovieList` component.
+   Provide inputs for filtering movies by title and rating.
 
 ### Features to Implement
 
 - **Add a New Movie**  
-  Create a form or input fields that allow users to add a new movie with the following attributes:
-  - Title
-  - Description
-  - Poster URL
-  - Rating
+  Create a form to allow users to add a new movie...
 
-- **Filtering Movies**  
-  Allow the user to filter movies based on:
-  - **Title:** Filter should be case-insensitive and partial matches should be considered.
-  - **Rating:** Filter should show movies with ratings greater than or equal to the selected rating.
-
-## Project Setup Instructions
-
-### 1. Create a New React App
-
-- If you haven't already, set up a new React project:
-  ```bash
-  npx create-react-app movie-app
-  cd movie-app
-  ```
-  
-### 2. Create Components
-
-- Create the necessary components (`MovieCard`, `MovieList`, `Filter`) inside the `src` folder.
-
-### 3. Use React Hooks
-
-- Use **React hooks** (`useState`, `useEffect`, etc.) to manage component state and handle user interactions.
-
-## Hints
-
-### State Management
-
-- **State for Movies:** Use `useState` to create a state variable that holds an array of movie objects.
-  ```jsx
-  const [movies, setMovies] = useState([
-    // Example movie object
-    {
-      title: "Example Movie",
-      description: "An example movie description.",
-      posterURL: "https://example.com/poster.jpg",
-      rating: 5
-    }
-  ]);
-  ```
-  
-- **Adding a New Movie:** You can create a function that updates the `movies` state with a new movie object. Consider using an input form and `onChange`/`onSubmit` handlers.
-
-### Filtering Movies
-
-- **Filter by Title:** Create a state variable for the filter input and use it to conditionally render the movie list based on the input value.
-- **Filter by Rating:** Similarly, use a state variable for rating input and display movies that match the criteria.
-
-### Conditional Rendering
-
-- Make sure to use conditional rendering to display messages like "No movies found" when the filtered list is empty.
-
-### CSS Styling
-
-- Add styles to make your app visually appealing using CSS or any library of your choice (e.g., Tailwind CSS, Bootstrap).
-
-### Example Project Structure
-
-```bash
-movie-app/
-├── README.md
-├── node_modules
-├── package.json
-├── public
-└── src
-    ├── App.js
-    ├── components
-    │   ├── MovieCard.js
-    │   ├── MovieList.js
-    │   └── Filter.js
-    ├── index.js
-    └── App.css
-```
-
-## Criteria for Evaluation
-
-- **Respect of the Guidelines:** Ensure that you follow the project instructions.
-- **Use of Hooks:** Proper usage of React hooks like `useState` and `useEffect`.
-- **Filtering Functionality:** The filtering by title and rating should work as expected.
-- **Adding Movies:** Users should be able to add new movies using a form or input fields.
-
-## Additional Tips
-
-- **Reusable Components:** Consider making `MovieCard` a reusable component that can be used in different contexts if needed.
-- **Performance Optimization:** Avoid unnecessary re-renders by using memoization techniques if applicable.
-- **Accessibility:** Make sure to add appropriate `aria` labels and handle keyboard interactions for better accessibility.
-
-Happy coding! 🚀
+</details>
