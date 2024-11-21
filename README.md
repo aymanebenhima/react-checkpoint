@@ -502,6 +502,88 @@ In this checkpoint, you will focus on enhancing your debugging skills with React
 
 2. **Install React Developer Tools**
    - If you have not already done so, install the [React Developer Tools browser extension](https://react.devtools) for Chrome, Firefox, or Edge. Alternatively, you can use the standalone version.
+   - Here's the buggy code:
+  ```jsx
+import React, { useState } from "react";
+import CounterDisplay from "./CounterDisplay";
+import CounterControls from "./CounterControls";
+
+function App() {
+  const [counter, setCounter] = useState(0);
+
+  // Function to increment counter
+  const increment = () => setCounter(counter + 1);
+
+  // Function to decrement counter
+  const decrement = () => setCounter(counter - 1);
+
+  // Function to reset counter
+  const reset = () => setCounter(0);
+
+  return (
+    <div>
+      <h1>Debug the Counter App</h1>
+      {/* Passing props to child components */}
+      <CounterDisplay counter={counter} />
+      <CounterControls
+        onIncrement={increment}
+        onDecrement={decrement}
+        onReset={reset}
+      />
+    </div>
+  );
+}
+
+export default App;
+
+// CounterDisplay.jsx
+import React from "react";
+
+function CounterDisplay({ value }) {
+  return (
+    <div>
+      <h2>Current Counter: {value}</h2>
+    </div>
+  );
+}
+
+export default CounterDisplay;
+
+// CounterControls.jsx
+import React from "react";
+
+function CounterControls({ onIncrement, onDecrement }) {
+  return (
+    <div>
+      <button onClick={onIncrement}>Increment</button>
+      <button onClick={onDecrement}>Decrement</button>
+      <button onClick={onReset}>Reset</button>
+    </div>
+  );
+}
+
+export default CounterControls;
+```
+- *Objective:*
+  - Identify the bugs in the app and fix them.
+  - Debug the following:
+  - Why the counter value doesn’t display correctly.
+  - Why the "Reset" button causes an error.
+  - Explain how React Developer Tools can be used to debug this app.
+ 
+- *Instructions:*
+  - Inspect the App Component:
+    - Use React DevTools to check the counter state in the App component.
+    - Confirm that the counter state updates correctly when the buttons are clicked.
+  - Inspect the CounterDisplay Component:
+    - Check the props passed to the CounterDisplay component.
+    - Identify why the counter value is not displayed.
+  - Inspect the CounterControls Component:
+    - Verify the props (onIncrement, onDecrement, onReset) passed to CounterControls.
+    - Find the source of the error when the "Reset" button is clicked.
+  - Fix the Bugs:
+    - Update the code to fix the issues.
+
 
 3. **Inspect the Components Tree**
    - Open your application in the browser.
