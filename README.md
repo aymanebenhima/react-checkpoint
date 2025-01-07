@@ -6,6 +6,7 @@
 - [React JS Fundamentals](#react-js-fundamentals)
   - [Objective 1: Product Card Display](#objective-1-product-card-display)
   - [Objective 2: FIFA Player Cards](#objective-2-fifa-player-cards)
+  - [Objective 3: Job Application Tracker](#objective-3-job-applicatin-tracker)
 - [React State](#react-state)
   - [Objective: Class-Based Component with State](#objective-class-based-component-with-state)
 - [React Hooks](#react-hooks)
@@ -266,6 +267,175 @@ In this checkpoint, you will create a React app to display a list of FIFA player
 - Use `map` to iterate through the array of players and render a `Player` component for each player.
 - Use the spread operator to pass props to the `Player` component.
 - Add custom styling using inline styles for the `Player` component.
+
+---
+
+## Objective 3: Job Application Tracker
+
+Welcome to the **Job Application Tracker** project! This beginner-friendly React project is designed to teach you how to use **React props**, **components**, and **best practices** while incorporating **Ant Design** or **shadcn** for a polished UI. 🚀
+
+---
+
+### 🏁 Project Goals
+
+By the end of this project, you will:
+
+1. Understand **React props** and how to pass data between components.
+2. Learn **conditional rendering** and how it works in React.
+3. Gain insights into **React component lifecycle** (functional components with hooks).
+4. Build a reusable and clean **component-based structure**.
+5. Follow best practices for writing maintainable React code.
+
+---
+
+### 🛠 Tech Stack
+
+- **React** (v18+)
+- **UI Library**: [Ant Design](https://ant.design/) or [shadcn/ui](https://shadcn.dev/)
+- **CSS-in-JS**: Ant Design default styling or Tailwind CSS for shadcn.
+
+---
+
+### 💡 Project Idea: Job Application Tracker
+
+You will create a Job Application Tracker where users can:
+
+- View a list of job applications.
+- Add a new job application (using a form).
+- Mark a job application as "Interview Scheduled" or "Rejected."
+- Filter job applications based on their status.
+
+---
+
+### 🕒 Timeframe
+
+**Estimated Completion Time**: 1 hour 30 minutes
+
+---
+
+### 🚀 Getting Started
+
+#### Prerequisites
+
+- Basic knowledge of React.
+- Node.js and npm installed on your computer.
+
+#### Installation
+
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/your-username/job-application-tracker.git
+   cd job-application-tracker
+   ```
+
+2. Install dependencies:  
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:  
+   ```bash
+   npm start
+   ```
+
+---
+
+### 📂 Project Structure
+
+```plaintext
+src/
+├── components/
+│   ├── ApplicationCard.jsx    // Displays individual job applications
+│   ├── ApplicationForm.jsx    // Form to add new applications
+│   ├── ApplicationList.jsx    // Displays a list of applications
+│   └── Filters.jsx            // Controls filtering (e.g., by status)
+├── App.jsx                     // Main component
+└── index.js                    // React DOM rendering
+```
+
+---
+
+### ✨ Features
+
+#### 1. **Component-Based Design**
+   - Reusable components: `ApplicationCard`, `ApplicationForm`, `ApplicationList`, `Filters`.
+
+#### 2. **React Props**
+   - Pass data between parent and child components using props.
+   - Example: Passing job details to `ApplicationCard`.
+
+#### 3. **Conditional Rendering**
+   - Display different statuses (e.g., Interview Scheduled, Rejected) with visual cues.
+
+#### 4. **Best Practices**
+   - Clean and modular code structure.
+   - Use prop types for type-checking props.
+   - Destructure props for readability.
+
+#### 5. **Ant Design / shadcn UI**
+   - Stylish components for forms, cards, and buttons.
+   - Use of pre-built themes and accessibility features.
+
+---
+
+### 📝 Tasks and Step-by-Step Guide
+
+#### Step 1: Create Components
+1. **ApplicationCard**  
+   - Props: `jobTitle`, `company`, `status`.  
+   - Conditional rendering: Show different colors for "Interview Scheduled" and "Rejected."
+
+2. **ApplicationList**  
+   - Props: `applications` (array of job objects).  
+   - Use `.map()` to render a list of `ApplicationCard` components.
+
+3. **Filters**  
+   - Props: `onFilterChange`.  
+   - Dropdown to select "All", "Interview Scheduled", or "Rejected."
+
+4. **ApplicationForm**  
+   - Use Ant Design's `Form` component or shadcn's form elements.  
+   - Controlled inputs for `jobTitle`, `company`, and `status`.  
+   - Submit button to add a new application.
+
+---
+
+#### Step 2: Pass Props and Manage State
+- Use `useState` in `App.jsx` to manage the list of applications.
+- Pass `applications` state to `ApplicationList` and `Filters`.
+
+---
+
+#### Step 3: Add Filtering Logic
+- Filter the displayed applications based on the selected status in the `Filters` component.
+
+---
+
+#### Step 4: Style with Ant Design / shadcn
+- Use pre-built styles for buttons, cards, and forms.
+- Apply responsive layouts for a modern UI.
+
+---
+
+### 🧪 Interview Questions for Assessment
+
+1. **Props and Components**
+   - What are props in React? Why are they important?
+   - Can props be changed inside a child component? Why or why not?
+
+2. **JSX**
+   - What is JSX? How is it different from HTML?
+
+3. **Lifecycle and Hooks**
+   - What is the difference between `useEffect` and `useState`?  
+   - How would you initialize a component with default data?
+
+4. **Conditional Rendering**
+   - How do you conditionally render a component or element in React?
+
+---
+
+Happy coding! 🎉
 </details>
 
 <details>
